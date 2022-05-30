@@ -20,8 +20,8 @@ int main(){
 
     //Generate random number from 0 to 1 to fill the table with five ships
  
-
-    //start the logic to insert random chips in the table
+    //Random ship generator
+    //start the logic to insert random ships in the table
     for(int linha = 0; linha < sizeof(ships); linha++){
         for (int coluna = 0; coluna < sizeof(ships); coluna++){
             int rng = rand() % 2;
@@ -34,7 +34,7 @@ int main(){
                 continue;
             }
                 else if(ships[linha][coluna] == 0){
-                    if(shipCount <= 4){
+                    if(shipCount < 4){
                         ships[linha][coluna] = rng;
                         shipCount++;
                     }
@@ -48,7 +48,7 @@ int main(){
     int hits = 0;
     int numberOfTurns = 0;
 
-    while (hits <= 4){
+    while (hits < 4){
         int linha, coluna;
 
         cout << "Seleciona as coordenadas\n";
@@ -62,7 +62,7 @@ int main(){
             ships[linha][coluna] = 0;
             hits++;
 
-            cout << "Hit! " << (5-hits) << " left.\n\n";
+            cout << "Hit! " << (4-hits) << " left.\n\n";
         }
         else{
             cout << "Missed\n\n";
